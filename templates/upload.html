@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Upload Image</h2>
+<div>
+  <form method="post" enctype="multipart/form-data" class="dropzone">
+    {% csrf_token %}
+      <div>
+        <input type="file" name="file" accept="image/*">
+        <button type="submit" class="btn btn-primary mb-2">Convert</button>
+      </div>
+  </form>
+</div>
+
+{% for message in messages %}
+
+    <div class="alert alert-danger">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+           {{ message }}
+    </div>
+
+{% endfor %}
+{% endblock %}
